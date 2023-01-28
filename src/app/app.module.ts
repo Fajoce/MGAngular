@@ -19,7 +19,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 import { AppComponent } from './app.component';
-import { InspeccionService } from './service/inspeccion.service';
 import { MenuComponent } from './Components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -70,7 +69,7 @@ const routes :Routes = [
     MatSelectModule,
     MatAutocompleteModule
   ],
-  providers: [InspeccionService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
