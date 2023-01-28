@@ -19,7 +19,7 @@ export class ClientsService {
   //get Clients by Id
 
   getClientbyId(id:number):Observable<Clients>{
-    return this.httpclient.get<Clients>(this.url+'/clientes'+id);
+    return this.httpclient.get<Clients>(this.url+'/clientes/'+id);
   }
 
   //Add Client

@@ -24,6 +24,7 @@ export class AddClientComponent {
     ClientsService,private contactService: ContactsService,
     private activeRoute: ActivatedRoute,
     private router: Router){this.forms = this.fg.group({
+      //cliId: ['', Validators.required],
       cliIdentificacion: ['', Validators.required],
       cliNombreCompleto : ['', Validators.required],
       cliDireccion:['', Validators.required],
@@ -36,33 +37,30 @@ export class AddClientComponent {
     ngOnInit(){
       if(this.id != 0){
         this.titulo = 'Actualizar Cliente';
-        this.obternerCliente(this.id);
-    
+        this.obternerCliente(this.id);    
       }
       this.contactList$ = this.contactService.getAllContacts();
       console.log(this.contactList$) 
     this.clientsList$= this.clientservice.getAllClients();  
     }
-recargarPagina():void{
-  location.reload();
-}
     
     obternerCliente(id:number){
     this.clientservice.getClientbyId(id).subscribe(data=>{
     this.forms.patchValue({
+      //cliId: data.cliId,
       cliIdentificacion: data.cliIdentificacion,
       cliNombreCompleto: data.cliNombreCompleto,
       cliDireccion: data.cliDireccion,
       cliTelefono: data.cliTelefono,
       cliContactoId: data.cliContactoId,
       cliFechaCreacion:data.cliFechaCreacion,      
-    }
-    )
+    })
     })
     }
     
     agregarEditarCliente(){
     const clients: Clients = {
+      //cliId: this.forms.value.cliId,
       cliIdentificacion : this.forms.value.cliIdentificacion,
       cliNombreCompleto : this.forms.value.cliNombreCompleto,
       cliDireccion: this.forms.value.cliDireccion,

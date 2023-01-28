@@ -34,6 +34,7 @@ const routes :Routes = [
   {path:'AgregarClientes', component : AddClientComponent},
   {path:'Contactos',component:ContactsComponent},
   {path:'AgregarContactos', component : AddContactComponent},
+  {path:'editarCliente/:id', component : AddClientComponent},
   {path:'Recibido', component:ReceivedContactComponent},  
   {path:'**', redirectTo: 'Inspeccion', pathMatch: 'full'}
 ]

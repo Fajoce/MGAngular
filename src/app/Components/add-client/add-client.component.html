@@ -5,8 +5,8 @@
     <mat-card>
         <mat-card-subtitle>Datos Clientes</mat-card-subtitle>
        <form [formGroup]="forms" (ngSubmit)="agregarEditarCliente()">
-        <mat-grid-list cols="2" rowHeight="80px">            
-            <mat-grid-tile>
+        <mat-grid-list cols="2" rowHeight="80px"> 
+              <mat-grid-tile>
                 <mat-form-field appearance="outline" class="mat-form-field">
                 <mat-label>Identificación</mat-label>
                 <input formControlName="cliIdentificacion" matInput autocomplete="off">               

@@ -52,7 +52,7 @@
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element">
             <mat-icon class="search" matTooltip="Ver" fontIcon="search" routerLink="/getInspection/{{element.id}}"></mat-icon>
-            <mat-icon routerLink="/editarTipo/{{element.id}}" class="edit" matTooltip="Editar" fontIcon="edit"></mat-icon>
+            <mat-icon routerLink="/editarCliente/{{element.cliId}}" class="edit" matTooltip="Editar" fontIcon="edit"></mat-icon>
             <mat-icon (click)="eliminarClientes(element.cliId)" class="delete" matTooltip="Borrar"fontIcon="delete"></mat-icon>
         </td>
        
