@@ -1,0 +1,12 @@
+<mat-card>
+    <div *ngIf="inspeccion$ | async as inspeccion" class="container text-center">
+        <mat-card-title>Id: {{inspeccion.id}}</mat-card-title>
+        <mat-card-content>
+            <h3>Nombre: {{inspeccion.nombre}}</h3>
+            <h3>Responsable: {{inspeccion.responsable}}</h3>
+        </mat-card-content>  
+        <mat-card-actions>
+            <button routerLink="/Tipos" mat-raised-button>Volver</button>
+        </mat-card-actions>          
+    </div>
+  </mat-card>

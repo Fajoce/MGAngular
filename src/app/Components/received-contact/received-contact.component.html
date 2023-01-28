@@ -1,0 +1,22 @@
+  <div class="container">
+    <h1 class="text-info text-center">Contacto Recibido</h1>
+    
+  <mat-card>
+    <div *ngIf="contacto$ | async as contact" class="container text-center">
+        <mat-card-title>Id: {{contact.conId}}</mat-card-title>
+        <mat-card-content>
+            <h3>Identificación: {{contact.conIdentificacion}}</h3>
+            <h3>Contacto: {{contact.conNombreCompleto}}</h3>
+        </mat-card-content>  
+        <mat-card-actions>
+            <button routerLink="/Clientes" mat-raised-button class="float-end">Back</button>
+        </mat-card-actions>             
+    </div>
+  </mat-card>
+</div>
+  
+
+
+
+
+

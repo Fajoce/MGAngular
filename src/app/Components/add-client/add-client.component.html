@@ -1,0 +1,69 @@
+<div class="title text-center">
+    <h3>{{titulo}}</h3>
+</div>
+<div class="container">
+    <button onclick="AddCliente()" class="btn btn-primary">Buscar contacto</button>
+    <mat-card>
+        <mat-card-subtitle>Datos Clientes</mat-card-subtitle>
+       <form [formGroup]="forms" (ngSubmit)="agregarEditarCliente()">
+        <mat-grid-list cols="2" rowHeight="80px">            
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Identificación</mat-label>
+                <input formControlName="cliIdentificacion" matInput autocomplete="off">               
+                </mat-form-field>
+            </mat-grid-tile >
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Cliente</mat-label>
+                <input formControlName="cliNombreCompleto" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Dirección</mat-label>
+                <input formControlName="cliDireccion" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Teléfono</mat-label>
+                <input formControlName="cliTelefono" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Contacto</mat-label>
+                <input formControlName="cliContactoId" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+           
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Fecha creación</mat-label>
+                <input formControlName="cliFechaCreacion" matInput autocomplete="off" placeholder="aaaa/mm/dd">               
+               </mat-form-field>
+            </mat-grid-tile>
+            
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Contacto</mat-label>
+                    <mat-select formControlName="cliContactoId">
+                      <mat-option *ngFor="let item of contactList$|async" [value]="item.conId" >
+                        {{item.conNombreCompleto}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"> 
+              <button [disabled]="forms.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+            <button  mat-button color="primary" routerLink="/Clientes">Regresar</button>
+            </mat-grid-tile> 
+            </mat-grid-list>   
+        </form>
+    </mat-card>
+</div>
+<div>
+    <app-received-contact></app-received-contact>
+</div>
+

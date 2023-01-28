@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+  }
+  .contain{
+    display: flex;
+    margin-left: 150px;
+    width: 80%;
+  }
+
+.delete{
+  cursor: pointer;
+  color:brown
+}
+.edit{
+  cursor: pointer;
+  color:rgb(93, 42, 165)
+}
+.search{
+  cursor: pointer;
+  color:green
+}

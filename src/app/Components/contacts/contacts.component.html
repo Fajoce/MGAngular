@@ -1,0 +1,65 @@
+<h1 class="text-center">Lista De Contactos</h1>
+<div class="container">
+  <button routerLink="/AgregarContactos" mat-raised-button class="float-end mb-3">Crear</button>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="conId">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.conId}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="conIdentificacion">
+      <th mat-header-cell *matHeaderCellDef> Identificación </th>
+      <td mat-cell *matCellDef="let element"> {{element.conIdentificacion}} </td>
+    </ng-container>
+
+    <!-- Name Client -->
+    <ng-container matColumnDef="conNombreCompleto">
+        <th mat-header-cell *matHeaderCellDef> Contacto </th>
+        <td mat-cell *matCellDef="let element"> {{element.conNombreCompleto}} </td>
+      </ng-container>
+
+      <!-- Address Client -->
+    <ng-container matColumnDef="conDireccion">
+        <th mat-header-cell *matHeaderCellDef> Direccion </th>
+        <td mat-cell *matCellDef="let element"> {{element.conDireccion}} </td>
+      </ng-container>
+
+      <!-- Phone Client -->
+    <ng-container matColumnDef="conTelefono">
+        <th mat-header-cell *matHeaderCellDef> Telefono </th>
+        <td mat-cell *matCellDef="let element"> {{element.conTelefono}} </td>
+      </ng-container>
+
+                
+       <!-- date of creation -->
+    <ng-container matColumnDef="conFechaCreacion">
+        <th mat-header-cell *matHeaderCellDef> Creación </th>
+        <td mat-cell *matCellDef="let element"> {{element.conFechaCreacion|date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon class="search" matTooltip="Ver" fontIcon="search" routerLink="/getInspection/{{element.id}}"></mat-icon>
+            <mat-icon routerLink="/editarTipo/{{element.id}}" class="edit" matTooltip="Editar" fontIcon="edit"></mat-icon>
+            <mat-icon (click)="eliminarContacts(element.conId)" class="delete" matTooltip="Borrar"fontIcon="delete"></mat-icon>
+        </td>
+       
+      </ng-container>
+   <!--<tr><button (click)="getInspectionById(element.id)"></button></tr>-->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" class="paginator mt-3 float-center"
+showFirstLastButtons
+aria-label="Select element of tipos">
+</mat-paginator>
+</div>
+

@@ -1,0 +1,17 @@
+<div class="container text-center bg-success">
+<button mat-button [matMenuTriggerFor]="aboveMenu">Inicio</button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+    <button mat-menu-item routerLink=''>Quienes Somos</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Clientes</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink='/Clientes'>Listado</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">Contactos</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item routerLink='/Contactos'>Listado</button>
+
+</mat-menu>
+</div>
