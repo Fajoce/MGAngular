@@ -18,6 +18,7 @@ export class AddClientComponent {
   titulo:string = 'Agregar Clientes';
 
   contactList$!: Observable<any>
+  clientsList$!: Observable<any>
 
   constructor(private fg: FormBuilder, private clientservice:
     ClientsService,private contactService: ContactsService,
@@ -36,9 +37,11 @@ export class AddClientComponent {
       if(this.id != 0){
         this.titulo = 'Actualizar Cliente';
         this.obternerCliente(this.id);
-        this.contactList$ = this.contactService.getAllContacts();
-        console.log(this.contactList$)   
+    
       }
+      this.contactList$ = this.contactService.getAllContacts();
+      console.log(this.contactList$) 
+    this.clientsList$= this.clientservice.getAllClients();  
     }
 recargarPagina():void{
   location.reload();
@@ -73,14 +76,16 @@ recargarPagina():void{
     }
     else{
       this.agregarCliente(clients);
+      alert('Cliente agregado exitosamente!');      
       this.router.navigate(['/Clientes']);
     }
     }
     agregarCliente(clients:Clients){
     this.clientservice.addClient(clients).subscribe(data=>{
       console.log(data);
-      console.log('Cliente agregado exitosamente!');
+      alert('Cliente agregado exitosamente!');
       this.router.navigate(['/Clientes']);
+      this.clientservice.getAllClients();
     })
     }
     

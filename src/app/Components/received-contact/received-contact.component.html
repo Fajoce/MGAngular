@@ -3,13 +3,13 @@
     
   <mat-card>
     <div *ngIf="contacto$ | async as contact" class="container text-center">
-        <mat-card-title>Id: {{contact.conId}}</mat-card-title>
-        <mat-card-content>
+        <mat-card-title class="bg-success">Id: {{contact.conId}}</mat-card-title>
+        <mat-card-content class="bg-success">
             <h3>Identificación: {{contact.conIdentificacion}}</h3>
             <h3>Contacto: {{contact.conNombreCompleto}}</h3>
         </mat-card-content>  
         <mat-card-actions>
-            <button routerLink="/Clientes" mat-raised-button class="float-end">Back</button>
+            <button routerLink="/Clientes"  class="float-end btn btn-success">Back</button>
         </mat-card-actions>             
     </div>
   </mat-card>
