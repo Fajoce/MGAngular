@@ -75,8 +75,7 @@ recargarPagina():void{
     this.editarCliente(this.id,clients)
     }
     else{
-      this.agregarCliente(clients);
-      alert('Cliente agregado exitosamente!');      
+      this.agregarCliente(clients);     
       this.router.navigate(['/Clientes']);
     }
     }
