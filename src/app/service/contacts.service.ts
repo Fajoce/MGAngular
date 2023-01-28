@@ -37,6 +37,6 @@ export class ContactsService {
   }
 
   deleteContact(id:number){
-    return this.httpclient.delete(this.url+`/contact/${id}`);
+    return this.httpclient.delete(this.url+`/contactos/${id}`);
   }
 }

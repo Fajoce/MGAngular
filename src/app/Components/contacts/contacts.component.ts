@@ -27,7 +27,7 @@ export class ContactsComponent {
   this.getContacts();
   }
 
-  eliminarContacts(id:number){
+  eliminarContactos(id:number){
     return this.contactService.deleteContact(id).subscribe(data=>{
      /*this.toast.success('Registro eliminado satisfactoriamente!');*/
      alert('Registro ' + id + ' eliminado con exito')

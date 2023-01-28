@@ -1,5 +1,5 @@
 export interface Contacts {
-    conId:number,
+    conId?:number,
     conIdentificacion: string,
     conNombreCompleto: string,
     conDireccion: string,

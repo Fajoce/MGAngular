@@ -1,1 +1,61 @@
-<p>add-contact works!</p>
+<div class="title text-center">
+    <h2 class="text-info">{{titulo}}</h2>
+</div>
+<div class="container">
+    <mat-card>
+        <mat-card-subtitle>Datos Contactos</mat-card-subtitle>
+       <form [formGroup]="forms" (ngSubmit)="agregarEditarContacto()">
+        <mat-grid-list cols="2" rowHeight="80px">            
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Identificación</mat-label>
+                <input formControlName="conIdentificacion" matInput autocomplete="off">               
+                </mat-form-field>
+            </mat-grid-tile >
+            
+            <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contacto</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput                      
+                       [matAutocomplete]="auto"
+                       formControlName="conNombreCompleto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of contactList$ | async" [value]="option.conNombreCompleto">
+                    {{option.conNombreCompleto}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Dirección</mat-label>
+                <input formControlName="conDireccion" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Teléfono</mat-label>
+                <input formControlName="conTelefono" matInput autocomplete="off">               
+               </mat-form-field>
+            </mat-grid-tile>
+             
+            <mat-grid-tile>
+                <mat-form-field appearance="outline" class="mat-form-field">
+                <mat-label>Fecha creación</mat-label>
+                <input formControlName="conFechaCreacion" matInput autocomplete="off" placeholder="aaaa/mm/dd">               
+               </mat-form-field>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="2"> 
+              <button [disabled]="forms.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+            <button  mat-button color="primary" routerLink="/Clientes">Regresar</button>
+            </mat-grid-tile> 
+            </mat-grid-list>   
+        </form>
+    </mat-card>
+</div>
+
+
