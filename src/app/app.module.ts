@@ -27,6 +27,9 @@ import { AddClientComponent } from './Components/add-client/add-client.component
 import { ContactsComponent } from './Components/contacts/contacts.component';
 import { AddContactComponent } from './Components/add-contact/add-contact.component';
 import { ReceivedContactComponent } from './Components/received-contact/received-contact.component';
+import { BeginwithComponent } from './Components/beginwith/beginwith.component';
+import { ClienteMasDeUncontacto } from './Models/cliente-mas-de-uncontacto';
+import { ClientesConMasdeunContactoComponent } from './Components/clientes-con-masdeun-contacto/clientes-con-masdeun-contacto.component';
 
 const routes :Routes = [
   {path:'', redirectTo: 'Inspeccion', pathMatch: 'full'},
@@ -35,7 +38,9 @@ const routes :Routes = [
   {path:'Contactos',component:ContactsComponent},
   {path:'AgregarContactos', component : AddContactComponent},
   {path:'editarCliente/:id', component : AddClientComponent},
-  {path:'Recibido', component:ReceivedContactComponent},  
+  {path:'Recibido', component:ReceivedContactComponent}, 
+  {path:'EmpiecePor',component:BeginwithComponent}, 
+  {path:'MasDeUno',component:ClientesConMasdeunContactoComponent}, 
   {path:'**', redirectTo: 'Inspeccion', pathMatch: 'full'}
 ]
 
@@ -48,7 +53,9 @@ const routes :Routes = [
     AddClientComponent,
     ContactsComponent,
    AddContactComponent,
-   ReceivedContactComponent
+   ReceivedContactComponent,
+   BeginwithComponent,
+   ClientesConMasdeunContactoComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,12 @@ export class ContactsService {
     return this.httpclient.get<any>(this.url+'/contactos');
   }
 
+  //get All Contacts who begin witn Carl
+
+  getAllContactsBeginWith():Observable<any>{
+    return this.httpclient.get<any>(this.url+'/contactos/carl');
+  }
+
    //get Contacts to create Client
 
    getSpecificContact():Observable<any>{

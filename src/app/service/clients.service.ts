@@ -15,6 +15,11 @@ export class ClientsService {
   getAllClients():Observable<any[]>{
     return this.httpclient.get<any[]>(this.url+'/clientes');
   }
+    //get All Clients with more than one contact
+
+    getAllClientsWithMoreThanOneContact():Observable<any[]>{
+      return this.httpclient.get<any[]>(this.url+'/clientes/masdeuno');
+    }
 
   //get Clients by Id
 

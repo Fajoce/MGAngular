@@ -1,6 +1,6 @@
-<h1 class="text-center text-info">Lista De Contactos</h1>
+<h1 class="text-center text-info">Lista De Clientes cuyos Contactos empiezan por Carl</h1>
 <div class="container">
-  <button routerLink="/AgregarContactos" mat-raised-button class="float-end mb-3">Crear</button>
+  
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
     <!--- Note that these columns can be defined in any order.
@@ -20,7 +20,7 @@
 
     <!-- Name Client -->
     <ng-container matColumnDef="conNombreCompleto">
-        <th mat-header-cell *matHeaderCellDef> Contacto </th>
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
         <td mat-cell *matCellDef="let element"> {{element.conNombreCompleto}} </td>
       </ng-container>
 
@@ -43,14 +43,10 @@
         <td mat-cell *matCellDef="let element"> {{element.conFechaCreacion|date}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef> Acciones </th>
-        <td mat-cell *matCellDef="let element">
-            <mat-icon class="search" matTooltip="Ver" fontIcon="search" routerLink="/getInspection/{{element.id}}"></mat-icon>
-            <mat-icon routerLink="/editarTipo/{{element.id}}" class="edit" matTooltip="Editar" fontIcon="edit"></mat-icon>
-            <mat-icon (click)="eliminarContactos(element.conId)" class="delete" matTooltip="Borrar"fontIcon="delete"></mat-icon>
-        </td>
-       
+       <!-- Name Column -->
+    <ng-container matColumnDef="conNombre">
+        <th mat-header-cell *matHeaderCellDef> Contacto </th>
+        <td mat-cell *matCellDef="let element"> {{element.conNombre}} </td>
       </ng-container>
    <!--<tr><button (click)="getInspectionById(element.id)"></button></tr>-->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -62,4 +58,5 @@ showFirstLastButtons
 aria-label="Select element of tipos">
 </mat-paginator>
 </div>
+
 
