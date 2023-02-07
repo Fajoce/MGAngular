@@ -24,7 +24,7 @@ export class AddClientComponent {
     ClientsService,private contactService: ContactsService,
     private activeRoute: ActivatedRoute,
     private router: Router){this.forms = this.fg.group({
-      //cliId: ['', Validators.required],
+      cliId: ['', Validators.required],
       cliIdentificacion: ['', Validators.required],
       cliNombreCompleto : ['', Validators.required],
       cliDireccion:['', Validators.required],
@@ -47,7 +47,7 @@ export class AddClientComponent {
     obternerCliente(id:number){
     this.clientservice.getClientbyId(id).subscribe(data=>{
     this.forms.patchValue({
-      //cliId: data.cliId,
+      cliId: data.cliId,
       cliIdentificacion: data.cliIdentificacion,
       cliNombreCompleto: data.cliNombreCompleto,
       cliDireccion: data.cliDireccion,
@@ -60,7 +60,7 @@ export class AddClientComponent {
     
     agregarEditarCliente(){
     const clients: Clients = {
-      //cliId: this.forms.value.cliId,
+      cliId: this.forms.value.cliId,
       cliIdentificacion : this.forms.value.cliIdentificacion,
       cliNombreCompleto : this.forms.value.cliNombreCompleto,
       cliDireccion: this.forms.value.cliDireccion,
@@ -71,24 +71,36 @@ export class AddClientComponent {
     if(this.id != 0){
       clients.cliId = this.id,
     this.editarCliente(this.id,clients)
+    alert('Cliente modificado exitosamente!');      
+      this.clientservice.getAllClients();
+    this.router.navigate(['/Clientes']);  
     }
     else{
       this.agregarCliente(clients);     
+      alert('Cliente agregado exitosamente!');      
+      this.clientservice.getAllClients();
       this.router.navigate(['/Clientes']);
     }
     }
     agregarCliente(clients:Clients){
-    this.clientservice.addClient(clients).subscribe(data=>{
-      console.log(data);
-      alert('Cliente agregado exitosamente!');
-      this.router.navigate(['/Clientes']);
+    this.clientservice.addClient(clients).subscribe(res=>{
+      console.log(res);
+      if(res == 'Creado Con exito'){
+        alert('Cliente agregado exitosamente!'); 
+      }
+      else{
+        alert('Ya existe un contacto relacionado a este cliente!'); 
+      }
+    /*       
       this.clientservice.getAllClients();
-    })
+      this.router.navigate(['/Clientes']);*/
+    }).unsubscribe();
     }
-    
+   
     editarCliente(id:number, clients: Clients){
+      debugger;
       this.clientservice.updateClient(id,clients).subscribe(data=>{
-        this.router.navigate(['/Clientes']);  
+        console.log(data);
       })
     }
 

@@ -29,11 +29,12 @@ export class ClientsService {
 
   //Add Client
   addClient(data:any){
-    return this.httpclient.post(this.url+'/clientes/',data);
+    return this.httpclient.post(this.url+'/clientes/',data ,{ 
+    responseType: 'text'});
   }
 
   updateClient(id:number,data:any){
-    return this.httpclient.put(this.url + '/clientes/',id,data);
+    return this.httpclient.put(this.url + `/clientes/${id}`,data);
   }
 
   deleteClient(id:number){
